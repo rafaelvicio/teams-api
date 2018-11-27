@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+
+import { buscaTeam } from "./../store/actions/busca-teams";
 
 class SearchBar extends Component {
   pesquisaTermo = e => {
     if (e.keyCode === 13) {
       const termo = e.target.value;
       console.log(termo);
+      this.props.buscaTeam(termo);
     }
   };
 
@@ -22,4 +26,10 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    buscaTeam: (termo) => dispatch(buscaTeam(termo))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);

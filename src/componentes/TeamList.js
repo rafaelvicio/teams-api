@@ -1,11 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-const TeamList = props => {
-  return (
-    <div>
-      <h1>TeamList</h1>
-    </div>
-  );
-};
+class TeamList extends Component {
 
-export default TeamList;
+  renderVideo(team) {
+    return (
+      <div>
+        <h1>{team.nome}</h1>
+        <h1>{team.slug}</h1>
+      </div>
+
+    )
+  }
+
+  render() {
+    return  (
+      <div>
+      {
+        this.props.teams
+      }
+      </div>
+    )
+
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    teams: state.busca.teams,
+    carregando: state.busca.carregando,
+    error: state.busca.error
+  }
+}
+
+export default connect(mapStateToProps, null)(TeamList);
