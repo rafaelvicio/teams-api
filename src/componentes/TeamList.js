@@ -5,9 +5,9 @@ class TeamList extends Component {
 
   renderVideo(team) {
     return (
-      <div>
-        <h1>{team.nome}</h1>
-        <h1>{team.slug}</h1>
+      <div>npm s
+        <h1>{team.id}</h1>
+        <h1>{team.title}</h1>
       </div>
 
     )

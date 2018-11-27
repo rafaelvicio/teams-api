@@ -29,8 +29,8 @@ export const buscaTeam = () => {
   return dispatch => {
     dispatch(buscaTeamInicio());
     fakeAPI
-      .get("/5bfc893e3100000f1139be77")
-      .then(data => dispatch(buscaTeamSucesso(data.data)))
+      .get("/todos")
+      .then(data => dispatch(buscaTeamSucesso(data)))
       .catch(erro => dispatch(buscaTeamErro(erro)));
   };
 };
