@@ -7,7 +7,6 @@ class SearchBar extends Component {
   pesquisaTermo = e => {
     if (e.keyCode === 13) {
       const termo = e.target.value;
-      console.log(termo);
       this.props.buscaTeam(termo);
     }
   };

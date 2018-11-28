@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 class TeamList extends Component {
   renderVideo(team) {
     return (
-      <div>
+      <div key={team.id}>
         ID: <h1>{team.id}</h1>
-        Title: <h1>{team.title}</h1>
+        Title: <h1>{team.name}</h1>
+        Game: <h2>{team.game_id}</h2>
       </div>
     );
   }

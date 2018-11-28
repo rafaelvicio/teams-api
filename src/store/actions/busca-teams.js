@@ -9,7 +9,6 @@ export const buscaTeamInicio = () => {
 };
 
 export const buscaTeamSucesso = teams => {
-  console.log("TEAMS: ", teams);
   return {
     type: "BUSCA_TEAM_SUCSSO",
     teams: teams,
@@ -30,8 +29,13 @@ export const buscaTeam = () => {
   return dispatch => {
     dispatch(buscaTeamInicio());
     fakeAPI
-      .get("/todos")
-      .then(data => dispatch(buscaTeamSucesso(data.data)))
-      .catch(erro => dispatch(buscaTeamErro(erro)));
+      .get("/5bfe063f31000064002cfb96")
+      .then(data => {
+        dispatch(buscaTeamSucesso(data.data))
+      }
+        )
+      .catch(erro => {
+        dispatch(buscaTeamErro(erro)) 
+      });
   };
 };
