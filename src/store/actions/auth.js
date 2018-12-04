@@ -3,6 +3,12 @@ import { authRef } from "../../config/firebase";
 export const fetchUser = () => dispatch => {
   authRef.onAuthStateChanged(user => {
     if (user) {
+      console.log(
+        "Opa",
+        authRef.currentUser
+          .getIdToken(true)
+          .then(idtoken => console.log("TOken", idtoken))
+      );
       dispatch({
         type: "FETCH_USER",
         payload: user
