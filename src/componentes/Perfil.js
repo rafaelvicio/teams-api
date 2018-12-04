@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+
+import * as actions from "../store/actions/auth";
+
 class Perfil extends Component {
+  componentDidMount() {
+    console.log("teste", this.props);
+  }
+
   render() {
     return (
       <div>
@@ -10,4 +18,13 @@ class Perfil extends Component {
   }
 }
 
-export default Perfil;
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  actions
+)(Perfil);

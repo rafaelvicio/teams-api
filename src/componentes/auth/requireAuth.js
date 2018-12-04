@@ -21,8 +21,7 @@ export default function(ComposedComponent) {
     }
 
     render() {
-      if (this.props.authenticated.user) {
-        console.log("Props", this.props);
+      if (this.props.authenticated) {
         return <ComposedComponent {...this.props} />;
       }
       return null;
@@ -30,7 +29,6 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    console.log("Estado", state);
     return { authenticated: state.auth };
   }
 

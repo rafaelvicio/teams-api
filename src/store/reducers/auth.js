@@ -1,18 +1,7 @@
-import firebase from "../../api/firebase";
-
-const INITIAL_STATE = {
-  user: null
-};
-
-export default function authReduce(state = INITIAL_STATE, action) {
+export default function authReduce(state = false, action) {
   switch (action.type) {
-    case "LOGIN":
-      return {
-        user: action.user
-      };
-    case "LOGOUT":
-      firebase.logout();
-      return null;
+    case "FETCH_USER":
+      return action.payload || null;
     default:
       return state;
   }
